@@ -3,7 +3,6 @@ const galleryData = [
     'Image/project1.jpg',
     'Image/project2.jpg',
     'Image/project3.jpg',
-    
 ];
 
 
@@ -12,12 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     
     const blogPostsData = [
-        { title: 'Post header 1', content: 'Post text 1 .' },
-        { title: 'Post header 2', content: 'Post text 2.' },
+        { title: 'Post header 1', content: 'Post content 1.' },
+        { title: 'Post header 2', content: 'Post content 2.' },
         // More posts
     ];
 
-    // Dinamic add post blogs
+    // Dinamic add posts
     blogPostsData.forEach(post => {
         const postElement = document.createElement('div');
         postElement.classList.add('blog-post');
@@ -31,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         if (targetButton.classList.contains('read-more')) {
             const postParagraph = targetButton.previousElementSibling;
-           
+            
             if (postParagraph) {
                 const postContent = blogPostsData.find(post => post.content.startsWith(postParagraph.textContent));
                 
@@ -41,18 +40,19 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         } else if (targetButton.classList.contains('collapse')) {
             const postParagraph = targetButton.previousElementSibling;
+
             
             if (postParagraph) {
                 postParagraph.innerHTML = `${postParagraph.textContent.substring(0, 100)}... <button class="read-more">Read more</button>`;
             }
         }  
     });
-    
 
+    
     const recentPostsData = [
         { title: 'Post 1', date: '2023-01-15' },
         { title: 'Post 2', date: '2023-01-10' },
-        // More
+        
     ];
 
     const tagCloudData = ['Tech', 'JavaScript', 'Web-Dev', 'CSS', 'HTML', 'Blog'];
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         tagCloudContainer.appendChild(span);
     });
 
-    // PgUp croll
+    
     const scrollToTopButton = document.getElementById('scroll-to-top');
 
     window.addEventListener('scroll', function () {
@@ -82,22 +82,23 @@ document.addEventListener('DOMContentLoaded', function () {
             scrollToTopButton.style.display = 'none';
         }
     });
- 
+
+    
     scrollToTopButton.addEventListener('click', function () {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     });
 
     const galleryContainer = document.querySelector('.image-gallery');
-    
 
+    
     galleryData.forEach(imagePath => {
         const thumbnail = document.createElement('img');
         thumbnail.src = imagePath;
         thumbnail.alt = 'Gallery Image';
         thumbnail.classList.add('thumbnail');
 
-        // Full_Image
+        
         thumbnail.addEventListener('click', function () {
             openFullscreenImage(imagePath);
         });
@@ -122,3 +123,26 @@ function openFullscreenImage(imagePath) {
     fullscreenContainer.appendChild(fullscreenImage);
     document.body.appendChild(fullscreenContainer);
 }
+
+
+function toggleMobileMenu() {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const menuToggle = document.querySelector('.menu-toggle');
+
+    // Используйте classList.toggle для переключения видимости
+    mobileMenu.classList.toggle('show-mobile-menu');
+
+    // Добавьте проверку и изменение стиля кнопки меню
+    if (mobileMenu.classList.contains('show-mobile-menu')) {
+        menuToggle.style.color = '#555'; // Цвет, когда меню видимо
+    } else {
+        menuToggle.style.color = 'white'; // Цвет, когда меню скрыто
+    }
+}
+
+document.addEventListener('click', function (event) {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (!event.target.classList.contains('menu-toggle') && mobileMenu.style.display === 'block') {
+        mobileMenu.style.display = 'none';
+    }
+});

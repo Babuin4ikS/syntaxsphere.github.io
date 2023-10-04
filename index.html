@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <aside>
+    <aside class="aside-nav">
         <!-- MENU -->
            
         <a href="#">MAIN</a>
@@ -17,17 +17,27 @@
         <a href="#contacts">CONTACTS</a>
         <a href="#gallery">GALLERY</a>
 
+        <!-- Button menu mobile -->
+        <div class="menu-toggle" onclick="toggleMobileMenu()">☰</div>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu">
+            <a href="#">MAIN</a>
+            <a href="#blog">BLOG</a>
+            <a href="#contacts">CONTACTS</a>
+            <a href="#gallery">GALLERY</a>
+
+
         <div class="widget">
-            <h3>Последние посты</h3>
+            <h3>Last posts</h3>
             <ul id="recent-posts">
-                <!-- Последние посты будут добавлены динамически с использованием JavaScript -->
             </ul>
         </div>
 
         <div class="widget">
-            <h3>Облако тегов</h3>
+            <h3>Tag cloud</h3>
             <div id="tag-cloud">
-                <!-- Облако тегов будет добавлено динамически с использованием JavaScript -->
+                
             </div>
         </div>
     </aside>
@@ -43,11 +53,11 @@
         </header>
 
         <main>
-            <!-- Блог -->
+            <!-- Blog -->
             <section id="blog" class="blog">
                 <h2>Blog</h2>
                 <div class="blog-posts" id="blog-posts">
-                    <!-- Посты блога будут добавлены динамически с использованием JavaScript -->
+                    
                 </div>
             </section>
         </main>
@@ -55,7 +65,7 @@
         <section id="gallery" class="gallery">
             <h2>Gallery</h2>
             <div class="image-gallery">
-                <!-- Миниатюры изображений будут добавлены динамически с использованием JavaScript -->
+                
             </div>
         </section>
 
@@ -67,7 +77,7 @@
 
     <div id="scroll-to-top" class="scroll-to-top">↑ PgUp</div>
 
-    <!-- Подключите ваши скрипты JavaScript здесь -->
+    
     <script src="JS/scripts.js"></script>
 </body>
 
